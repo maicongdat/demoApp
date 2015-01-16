@@ -1,0 +1,31 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="comment_form">
+        <%= render 'shared/comment_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <span class = microposts>
+        <%= render @micropost %>
+      </span>
+      <h4>Comment</h4>
+      <%= render 'shared/comment_list' %>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>comment Feed</h3>
+      <%= render 'shared/comment_list' %>
+    </div>
+  </div>
+<% end %>

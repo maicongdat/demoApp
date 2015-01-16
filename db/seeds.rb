@@ -17,3 +17,13 @@ User.create!(name:  "Example User",
                activated: true,
                activated_at: Time.zone.now)
 end
+users = User.order(:created_at).take(6)
+50.times do
+  title = "demo title"
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| 
+    @micropost = user.microposts.create!(title: title,content: content) 
+    @micropost.comments.create(user_id: user.id, content: "comment__" )
+
+  }
+end
