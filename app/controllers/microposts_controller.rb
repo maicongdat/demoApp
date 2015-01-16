@@ -18,6 +18,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
     @comments = @micropost.comments.paginate(page: params[:page], per_page: 3)
     @comment = Comment.new
+    @showComment = true
   end
 
   def destroy
